@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco Digital</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Banco Digital</h1>
+        <div class="info">
+            <p><strong>Saldo:</strong> R$ {{ saldo }}</p>
+            <p><strong>Limite de saque:</strong> R$ {{ limite }}</p>
+            <p><strong>Saques realizados:</strong> {{ numero_saques }} / {{ LIMITE_SAQUES }}</p>
+        </div>
+
+        {% if mensagem %}
+            <div class="message">{{ mensagem }}</div>
+        {% endif %}
+
+        <form action="/depositar" method="post">
+            <input type="number" name="valor" placeholder="Valor do depósito" required>
+            <button type="submit" class="button">Depositar</button>
+        </form>
+
+        <form action="/sacar" method="post">
+            <input type="number" name="valor" placeholder="Valor do saque" required>
+            <button type="submit" class="button">Sacar</button>
+        </form>
+
+        <a href="/extrato" class="link">Ver Extrato</a>
+    </div>
+</body>
+</html>
