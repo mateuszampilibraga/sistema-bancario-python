@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Nova Conta</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Criar Nova Conta</h1>
+
+        {% if mensagem %}
+        <p style="color: green;">{{ mensagem }}</p>
+        {% endif %}
+
+        <form action="{{ url_for('criar_conta') }}" method="POST">
+            <label for="tipo_conta">Escolha o tipo de conta:</label><br>
+            <select id="tipo_conta" name="tipo_conta" required>
+                <option value="Conta Corrente">Conta Corrente</option>
+                <option value="Poupança">Poupança</option>
+                <option value="Conta Empresarial">Conta Empresarial</option>
+            </select><br><br>
+
+            <button type="submit">Criar Conta</button>
+        </form>
+
+        <p><a href="{{ url_for('selecionar_conta') }}">Voltar para a seleção de contas</a></p>
+    </div>
+</body>
+</html>

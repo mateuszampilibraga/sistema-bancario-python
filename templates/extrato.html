@@ -11,7 +11,7 @@
         <h1>Extrato</h1>
         <pre class="extrato">{{ extrato }}</pre>
         <p><strong>Saldo atual:</strong> R$ {{ saldo }}</p>
-        <a href="/" class="link">Voltar</a>
+         <a href="{{ url_for('index') }}" class="link">Voltar</a>
     </div>
 </body>
 </html>

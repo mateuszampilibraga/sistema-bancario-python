@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form action="{{ url_for('autenticar') }}" method="POST">
+            <div class="info">
+                <label for="username">Usuário:</label><br>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="info">
+                <label for="password">Senha:</label><br>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="button">Entrar</button>
+        </form>
+        {% if mensagem %}
+            <p class="message" style="color: red;">{{ mensagem }}</p>
+        {% endif %}
+
+        <p>Não tem uma conta? <a href="{{ url_for('registrar') }}">Cadastre-se aqui</a></p>
+    </div>
+</body>
+</html>
